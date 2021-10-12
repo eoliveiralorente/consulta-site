@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consulta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consulta
+  template:
+    metadata:
+      labels:
+        app: consulta
+    spec:
+      containers:
+        - name: consulta
+          image: eoliveiralorente/consulta:0.0.1
+          #resources:
+          #  requests:
+          #    cpu: "0.1"
+          #    memory: "100m"
+          #  limits:
+          #    cpu: "0.2"
+          #    memory: "200m"      
+          ports:
+            - containerPort: 80
