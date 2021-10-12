@@ -1,6 +1,6 @@
 pipeline {
 environment {
-    registry = "eoliveiralorente/consulta"
+    registry = "eoliveiralorente/consulta:0.0.1"
     registryCredential = 'dockerhub_id'
     dockerImage = ''
 }
