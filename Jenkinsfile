@@ -11,7 +11,7 @@ environment {
         stage('Clonar git') {
           steps {
             script {
-              git([url:'https://github.com/eoliveiralorente/consulta.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
+              git([url:'https://github.com/eoliveiralorente/consulta-site.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
             }           
           }
         }
@@ -31,7 +31,7 @@ environment {
                      docker pull arminc/clair-local-scan
                      docker run -d --name db arminc/clair-db:latest
                      docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan:latest
-                     DOCKER_IMAGE=eoliveiralorente/api-s3:latest
+                     DOCKER_IMAGE=eoliveiralorente/consulta:0.0.1
                      docker pull $DOCKER_IMAGE
                      docker ps
                      sleep 10
