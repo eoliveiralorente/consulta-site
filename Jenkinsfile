@@ -1,6 +1,6 @@
 pipeline {
 environment {
-    registry = "eoliveiralorente/site"
+    registry = "eoliveiralorente/consulta-site"
     registryCredential = 'dockerhub_id'
     dockerImage = ''
 }
@@ -11,7 +11,7 @@ environment {
         stage('Clonar git') {
           steps {
             script {
-              git([url:'https://github.com/eoliveiralorente/consultas-api.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
+              git([url:'https://github.com/eoliveiralorente/consulta-site.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
             }           
           }
         }
