@@ -16,4 +16,11 @@ environment {
           }
         }
       }
+        stage('Docker build') {
+          steps {
+            script {
+              dockerImage = docker.build registry + ":$BUILD_NUMBER"   
+              }
+            }
+          }    
 }
