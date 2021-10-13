@@ -15,24 +15,4 @@ environment {
             }           
           }
         }
-
-        stage('Docker build') {
-            steps {
-                script {
-                 dockerImage = docker.build eoliveiralorente/consulta-site + ":$BUILD_NUMBER"   
-              }
-            }
-        }
-        
-        stage('Docker push') {
-            steps {
-                script {
-                docker.withRegistry('https://registry.hub.docker.com',registryCredential ) {
-                dockerImage.push()
-                }
-            }
-        }
-        
-       }
-    }
 }
