@@ -11,7 +11,7 @@ environment {
         stage('Clonar git') {
           steps {
             script {
-              git 'https://github.com/eoliveiralorente/consulta-site.git'
+              git([url:'https://github.com/eoliveiralorente/consulta-site.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
             }           
           }
         }
