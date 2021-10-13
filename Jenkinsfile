@@ -11,7 +11,7 @@ environment {
         stage('Clonar git') {
           steps {
             script {
-              git([url:'https://github.com/eoliveiralorente/consulta-site.git', branch:'main', credentialsId: 'eoliveiralorente_id'])
+              git 'https://github.com/eoliveiralorente/consulta-site.git'
             }           
           }
         }
@@ -28,7 +28,7 @@ environment {
             steps {
                 script {
                 docker.withRegistry('https://registry.hub.docker.com',registryCredential ) {
-                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push("")
                 }
             }
         }
